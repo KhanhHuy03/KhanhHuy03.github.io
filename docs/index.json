@@ -1,0 +1,99 @@
+[
+{
+	"uri": "//localhost:1313/1-introduce/",
+	"title": "Giới thiệu",
+	"tags": [],
+	"description": "",
+	"content": "Giới thiệu Trong bối cảnh chuyển đổi số mạnh mẽ, việc sử dụng dịch vụ điện toán đám mây như AWS ngày càng phổ biến nhằm tối ưu hóa hạ tầng công nghệ thông tin và nâng cao hiệu quả vận hành. Tuy nhiên, đi kèm với sự linh hoạt và mở rộng của đám mây là thách thức trong việc kiểm soát và tối ưu chi phí. Đề tài \u0026ldquo;FinOps Implementation with Automated Cost Governance trên AWS\u0026rdquo; tập trung vào việc áp dụng các phương pháp quản trị tài chính hiện đại (FinOps) kết hợp với các công cụ tự động hóa của AWS để giúp doanh nghiệp chủ động giám sát, phát hiện bất thường và tối ưu hóa chi tiêu trên nền tảng đám mây. Qua đó, tổ chức có thể đảm bảo sử dụng tài nguyên hiệu quả, tiết kiệm ngân sách và hỗ trợ mục tiêu phát triển bền\nKiến trúc giải pháp và các dịch vụ sử dụng Giải pháp FinOps với Automated Cost Governance trên AWS được xây dựng dựa trên kiến trúc tích hợp nhiều dịch vụ AWS nhằm tự động hóa việc giám sát, phân tích và tối ưu hóa chi phí. Kiến trúc này bao gồm các thành phần chính như sau:\nAWS Budgets: Thiết lập ngân sách, theo dõi chi tiêu và gửi cảnh báo khi vượt ngưỡng. AWS Cost Anomaly Detection: Tự động phát hiện các bất thường về chi phí và cảnh báo kịp thời. AWS Cost \u0026amp; Usage Report (CUR): Thu thập và phân tích chi tiết dữ liệu sử dụng và chi phí. AWS Compute Optimizer: Đưa ra khuyến nghị tối ưu hóa tài nguyên tính toán như EC2, EBS, Lambda. AWS Lambda: Tự động kiểm tra và xử lý các tài nguyên không sử dụng hoặc hoạt động kém hiệu quả. Amazon CloudWatch: Giám sát, thu thập log và trực quan hóa dữ liệu chi phí, hiệu suất. Amazon SNS (Simple Notification Service): Gửi thông báo tự động đến email, Slack hoặc các kênh liên lạc khác. Amazon S3: Lưu trữ báo cáo, log và dữ liệu phân tích chi phí. Các dịch vụ này phối hợp với nhau tạo thành một hệ thống quản trị chi phí tự động, giúp doanh nghiệp chủ động kiểm soát, phát hiện sớm các vấn đề và tối ưu hóa chi tiêu trên AWS một cách hiệu quả và minh\n"
+},
+{
+	"uri": "//localhost:1313/",
+	"title": "Setting up an AWS account",
+	"tags": [],
+	"description": "",
+	"content": "Tổng quan Trong bài thực hành đầu tiên này, bạn sẽ tiến hành tạo mới một tài khoản AWS và thiết lập xác thực đa yếu tố (MFA) để tăng cường bảo mật cho tài khoản. Tiếp theo, bạn sẽ tạo Nhóm Quản trị viên và Người dùng Quản trị nhằm quản lý quyền truy cập tài nguyên thay vì sử dụng tài khoản root.\nCuối cùng, bạn sẽ được hướng dẫn xác thực tài khoản với AWS Support trong trường hợp gặp sự cố về đăng nhập\nFinOps Implementation with Automated Cost Governance trên AWS FinOps là phương pháp kết hợp giữa tài chính và vận hành nhằm tối ưu hóa chi phí điện toán đám mây một cách chủ động và minh bạch. Trên AWS, việc triển khai FinOps với các công cụ tự động giúp doanh nghiệp kiểm soát, dự báo và tối ưu hóa chi tiêu hiệu quả hơn. Bằng cách tích hợp các giải pháp như AWS Budgets, Cost Anomaly Detection, Cost \u0026amp; Usage Report, Compute Optimizer và tự động hóa kiểm tra tài nguyên không sử dụng, tổ chức có thể phát hiện sớm các bất thường về chi phí, chủ động xử lý và liên tục cải tiến chính sách quản trị chi phí. Điều này không chỉ giúp tiết kiệm ngân sách mà còn nâng cao hiệu quả sử dụng tài nguyên AWS, đảm bảo phù hợp với mục tiêu kinh doanh và phát triển bền vững trên nền tảng đám\nMain Content Giới thiệu đề tài Bật Billing Access Tạo User IAM Cá Nhân Để Làm Việc Tạo AWS Budget Tạo AWS Cost Anomaly Bật Cost \u0026amp; Usage Report (CUR) Bật AWS Compute Optimizer Viết lambda kiểm tra tài nguyên idle (VD: EC2 không hoạt động) Tạo CloudWatch Dashboard Viết SOP Xử Lý Chi Phí Vượt Ngân Sách "
+},
+{
+	"uri": "//localhost:1313/2-billing-access/",
+	"title": "Bật Billing Access",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Vào Account Bước 2. Vào Edit Bước 3. Tích “Activate IAM Access” và chọn Update "
+},
+{
+	"uri": "//localhost:1313/3-create-user-iam/",
+	"title": "Tạo User IAM Cá Nhân Để Làm Việc",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Vào IAM → User → Add User Bước 2. Tạo User Tên: “finops-user” và \u0026ldquo;AWS Management Console access\u0026rdquo; Bước 3. Tạo “Permission sets” cho user B1. Vào Permission set B2. Tạo Permission set B3. Chọn Custom permission set → Next B4. Chọn các policy “Billing”, “CostExplorerReadOnlyAccess”, “BudgetsReadOnlyAccess”, “AWSBillingReadOnlyAccess”, “ViewOnlyAccess” Bước 5. Đặt tên permissions “”FinOpsBillingAccess” và mô tả Bước 6. Gán “User” với “Permission set” B1. Vào tab “AWS Account” → Click chọn User → Assign users or groups. B2. Trong tab Users click chọn User cần gán Permission set → Next B3. Click chọn Permission set đã tạo trước đó → Next B4. Kiểm tra kĩ → Submit "
+},
+{
+	"uri": "//localhost:1313/4-create-aws-budget/",
+	"title": "Tạo AWS Budget",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Vào Billing And Cost Management Bước 2. Vào tab Budget → Create Budget Bước 3. Chọn customize, cost budget → Next Bước 4. Tên Budget, kỳ hạn, ngân sách → Next Bước 5. Tạo ngưỡng cảnh báo "
+},
+{
+	"uri": "//localhost:1313/5-create-aws-cost-anomaly-detection/",
+	"title": "Tạo AWS Cost Anomaly Detection",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Tìm “Cost Anomaly Detection” Bước 2. Chọn mục Cost Anomaly Detection → Create Monitor (xóa Default-Service-Monitor nếu cần) Bước 3. Chọn AWS Services, đặt tên Monitor → Next Bước 4. Tên Subscription, thêm email gửi thông báo, hạn mức tiền "
+},
+{
+	"uri": "//localhost:1313/6-cost--usage-report/",
+	"title": "Bật Cost &amp; Usage Report (CUR)",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Billing → Data Export → Create Bước 2. Đặt Tên Export và tick chọn Include IDs Bước 3. Tạo S3 bucket (nếu chưa có) Bước 4. Chọn bucket vừa tạo, tạo thư mục con trong bucket S3 → Create "
+},
+{
+	"uri": "//localhost:1313/7-aws-compute-optimizer/",
+	"title": "Bật AWS-Compute-Optimizer",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Tìm “Compute Optimizer” Bước 2. Enable cho EC2, EBS, Lambda Enable cho từng dịch vụ bạn đã tạo, AWS sẽ phân tích đề xuất tối ưu Sau vài ngày sẽ có gợi ý tối ưu máy ảo "
+},
+{
+	"uri": "//localhost:1313/8-lambda-for-idle/",
+	"title": " Viết Lambda kiểm tra tài nguyên idle (VD: EC2 không hoạt động)",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Tạo Lambda function: Vào AWS Management Console → Lambda → Create function. Bước 2. Cấp quyền IAM cho Lambda B1. Vào IAM → Roles → Create Roles B2. Chọn Lambda B3. Gán policy - AmazonEC2ReadOnlyAccess (Cho phép Lambda đọc thông tin EC2 ), - CloudWatchReadOnlyAccess (Cho phép Lambda đọc metrics từ CloudWatch, Cần để lấy dữ liệu CPUUtilization 7 ngày qua), - AmazonSNSFullAccess (Cho phép Lambda gửi thông báo qua SNS), - AmazonEC2FullAccess(dừng EC2) - Đặt tên role: LambdaIdleEC2Policy B4. Gán Lambda vừa tạo cho Role “LambdaIdleEC2Policy”, - Trong màn hình Lambda chọn funtion đã tạo → Configuration → Permissions → Edit - Chọn role vừa mới tạo Bước 3. Code Lambda (Python) (Ví dụ kiểm tra EC2 có CPUUtilization \u0026lt; 5% trong 7 ngày qua) - Trong Lambda chọn function đã tạo → tab code - Source Code "
+},
+{
+	"uri": "//localhost:1313/10-create_cloudwatch-dashboard/",
+	"title": "Tạo CloudWatch Dashboard",
+	"tags": [],
+	"description": "",
+	"content": "Bước 1. Vào AWS Console → CloudWatch → Dashboards → Create dashboard. Tên Dashboard vd: FinOps-Cost-Dashboard Bước 2. Chọn loại widget Bước 3. Bật AWS/Billing metric để dùng trong Dashboard FinOps - Vào Billing → Trong menu trái → Billing preferences → Edit - Tick chọn Receive Billing Alerts → Save. Bước 4. Quay lại CloudWatch, Chọn Metrics → bạn sẽ thấy namespace AWS/Billing xuất hiện. Bước 5. Thêm widget Quay lại Dashboard → Add widget. Browse → chọn AWS/Billing. Thêm metric EstimatedCharges → chọn loại hiển thị (Line, Number…) → Create "
+},
+{
+	"uri": "//localhost:1313/11-sopp/",
+	"title": "SOP Xử Lý Chi Phí Khi Vượt Ngân Sách",
+	"tags": [],
+	"description": "",
+	"content": "B1. Phát hiện AWS Budgets hoặc Cost Anomaly Detection gửi cảnh báo qua Email, Slack hoặc SNS. B2. Xác nhận Kiểm tra số liệu thực tế trên AWS Cost Explorer hoặc Billing Dashboard. B3. Phân tích nguyên nhân Xác định dịch vụ nào tăng chi phí (ví dụ: EC2, S3, RDS…). Phân loại nguyên nhân: có thể kiểm soát / không thể kiểm soát. B4. Hành động Giảm hoặc tắt các tài nguyên không cần thiết (EC2, Auto Scaling, unused volumes). Hoặc xin phê duyệt tăng ngân sách nếu thực sự cần thiết. B5. Ghi nhận \u0026amp; cập nhật Lưu lại báo cáo về nguyên nhân và các hành động đã thực hiện. Điều chỉnh policy hoặc automation rule để tránh lặp lại sự cố tương tự. "
+},
+{
+	"uri": "//localhost:1313/9-log-in-s3-or-sns/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "\r"
+},
+{
+	"uri": "//localhost:1313/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "//localhost:1313/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
